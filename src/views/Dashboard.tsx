@@ -8,12 +8,14 @@ import {
   Clock,
   TrendingUp,
   Zap,
+  Presentation,
 } from 'lucide-react';
 import { PageHeader, Disclaimer } from '@/components/Shell';
 import type { ViewId } from '@/components/Shell';
 
 interface DashboardProps {
   onNavigate: (id: ViewId) => void;
+  onPresent: () => void;
 }
 
 const FEATURES: {
@@ -80,7 +82,11 @@ export function Dashboard({ onNavigate }: DashboardProps) {
         subtitle="Here's your AI-powered workspace at a glance."
         icon={Zap}
         accent="bg-accent-50 text-accent-600"
-      />
+      >
+        <button className="btn-accent text-sm px-3.5 py-2" onClick={onPresent}>
+          <Presentation size={15} /> Present project
+        </button>
+      </PageHeader>
 
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
